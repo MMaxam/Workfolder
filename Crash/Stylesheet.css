@@ -1,0 +1,20 @@
+body{
+background-color: azure;
+text-decoration-color: black;
+}
+
+table{
+    border: dotted black 2px;
+}
+
+th{
+    background-color: lightgray;
+}
+
+td{
+    background-color: aliceblue;
+}
+
+tr{
+    border-bottom-color: 0.5px solid black;
+}
