@@ -18,3 +18,28 @@ td{
 tr{
     border-bottom-color: 0.5px solid black;
 }
+
+a {
+    color: grey;
+}
+
+.navigation :hover{
+    color: red;
+}
+
+li{
+    list-style-type: none;
+    list-style: block;
+    text-align: left;
+}
+
+h1, h2, p, li{
+    color: #555; 
+    
+}
+
+p {
+    color: blue;
+}
+
+
