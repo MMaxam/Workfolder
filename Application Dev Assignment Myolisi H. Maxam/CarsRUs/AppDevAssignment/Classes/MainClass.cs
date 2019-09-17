@@ -20,6 +20,10 @@ namespace AppDevAssignment.Classes
         public string RentalPerDay { get; set; }
         public int Available { get; set; }
 
+        public string Field { get; set; }
+        public string Operator { get; set; }
+        public string Value { get; set; }
+
 
         public bool Insert(MainClass mc)
         {
@@ -158,20 +162,18 @@ namespace AppDevAssignment.Classes
 
         }
 
-
-
-        public bool First(MainClass mc)
+        public DataTable Select()
         {
-            bool isSuccess = false;
-
+            //connect to the database
             SqlConnection sqlCon = new SqlConnection(myConString);
             DataTable dt = new DataTable();
-
             try
             {
-                string sqlQuery = "SELECT TOP 1 * FROM Car";
-
-                SqlCommand cmd = new SqlCommand(sqlQuery, sqlCon);
+                //write the sql query
+                string sql = "SELECT * FROM Car";
+                //creating a command using 'sql' and 'sqlCon'
+                SqlCommand cmd = new SqlCommand(sql, sqlCon);
+                //Creating a sql adapter using 'cmd'
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
 
                 sqlCon.Open();
@@ -179,41 +181,47 @@ namespace AppDevAssignment.Classes
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error Loading data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
+                //disconnecting connection
                 sqlCon.Close();
             }
-            return isSuccess;
+
+            return dt;
         }
 
-        public bool Last(MainClass mc)
+        public DataTable Run()
         {
-            bool isSuccess = false;
-
-            SqlConnection sqlCon = new SqlConnection(myConString);
+            SqlConnection connection = new SqlConnection(myConString);
             DataTable dt = new DataTable();
 
             try
             {
-                string sqlQuery = "SELECT  * FROM Car Order By id DESC LIMIT";
 
-                SqlCommand cmd = new SqlCommand(sqlQuery, sqlCon);
+                string sql = "SELECT * WHERE @Field @Operator Value";
+                //creating a command using 'sql' and 'sqlCon'
+                SqlCommand cmd = new SqlCommand(sql, connection);
+                //Creating a sql adapter using 'cmd'
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
 
-                sqlCon.Open();
+                connection.Open();
                 sda.Fill(dt);
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error Loading data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                sqlCon.Close();
+                //disconnecting connection
+                connection.Close();
             }
-            return isSuccess;
+
+            return dt;
+
         }
 
     }
