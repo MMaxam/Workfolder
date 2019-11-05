@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtUpdate = new System.Windows.Forms.Button();
-            this.txtadd = new System.Windows.Forms.Button();
-            this.txtDelete = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.Button();
-            this.txtCancel = new System.Windows.Forms.Button();
-            this.txtExit = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.txtAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLast = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -52,72 +53,76 @@
             this.cbxAvailable = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDateReg = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
-            // txtUpdate
+            // btnUpdate
             // 
-            this.txtUpdate.Location = new System.Drawing.Point(672, 103);
-            this.txtUpdate.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUpdate.Name = "txtUpdate";
-            this.txtUpdate.Size = new System.Drawing.Size(139, 46);
-            this.txtUpdate.TabIndex = 0;
-            this.txtUpdate.Text = "Update";
-            this.txtUpdate.UseVisualStyleBackColor = true;
-            this.txtUpdate.Click += new System.EventHandler(this.TxtUpdate_Click);
+            this.btnUpdate.Location = new System.Drawing.Point(672, 103);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(139, 46);
+            this.btnUpdate.TabIndex = 0;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // txtadd
+            // txtAdd
             // 
-            this.txtadd.Location = new System.Drawing.Point(672, 156);
-            this.txtadd.Margin = new System.Windows.Forms.Padding(4);
-            this.txtadd.Name = "txtadd";
-            this.txtadd.Size = new System.Drawing.Size(139, 46);
-            this.txtadd.TabIndex = 0;
-            this.txtadd.Text = "Add";
-            this.txtadd.UseVisualStyleBackColor = true;
-            this.txtadd.Click += new System.EventHandler(this.txtadd_Click);
+            this.txtAdd.Location = new System.Drawing.Point(672, 156);
+            this.txtAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAdd.Name = "txtAdd";
+            this.txtAdd.Size = new System.Drawing.Size(139, 46);
+            this.txtAdd.TabIndex = 0;
+            this.txtAdd.Text = "Add";
+            this.txtAdd.UseVisualStyleBackColor = true;
+            this.txtAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // txtDelete
+            // btnDelete
             // 
-            this.txtDelete.Location = new System.Drawing.Point(672, 209);
-            this.txtDelete.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDelete.Name = "txtDelete";
-            this.txtDelete.Size = new System.Drawing.Size(139, 46);
-            this.txtDelete.TabIndex = 0;
-            this.txtDelete.Text = "Delete";
-            this.txtDelete.UseVisualStyleBackColor = true;
-            this.txtDelete.Click += new System.EventHandler(this.txtDelete_Click);
+            this.btnDelete.Location = new System.Drawing.Point(672, 209);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(139, 46);
+            this.btnDelete.TabIndex = 0;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // txtSearch
+            // btnSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(672, 262);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(139, 46);
-            this.txtSearch.TabIndex = 0;
-            this.txtSearch.Text = "Search";
-            this.txtSearch.UseVisualStyleBackColor = true;
-            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
+            this.btnSearch.Location = new System.Drawing.Point(672, 262);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(139, 46);
+            this.btnSearch.TabIndex = 0;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // txtCancel
+            // btnCancel
             // 
-            this.txtCancel.Location = new System.Drawing.Point(672, 315);
-            this.txtCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCancel.Name = "txtCancel";
-            this.txtCancel.Size = new System.Drawing.Size(139, 46);
-            this.txtCancel.TabIndex = 0;
-            this.txtCancel.Text = "Cancel";
-            this.txtCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(672, 315);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(139, 46);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // txtExit
+            // btnExit
             // 
-            this.txtExit.Location = new System.Drawing.Point(672, 368);
-            this.txtExit.Margin = new System.Windows.Forms.Padding(4);
-            this.txtExit.Name = "txtExit";
-            this.txtExit.Size = new System.Drawing.Size(139, 46);
-            this.txtExit.TabIndex = 0;
-            this.txtExit.Text = "Exit";
-            this.txtExit.UseVisualStyleBackColor = true;
-            this.txtExit.Click += new System.EventHandler(this.txtExit_Click);
+            this.btnExit.Location = new System.Drawing.Point(672, 368);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(139, 46);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // label1
             // 
@@ -128,7 +133,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 41);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 8;
             this.label1.Text = "Bowman Car Hire";
             // 
             // btnLast
@@ -140,7 +145,7 @@
             this.btnLast.TabIndex = 2;
             this.btnLast.Text = "Last";
             this.btnLast.UseVisualStyleBackColor = true;
-            this.btnLast.Click += new System.EventHandler(this.BtnLast_Click);
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
             // btnNext
             // 
@@ -151,7 +156,7 @@
             this.btnNext.TabIndex = 2;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.BtnNext_Click);
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -162,7 +167,7 @@
             this.btnPrevious.TabIndex = 2;
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = true;
-            this.btnPrevious.Click += new System.EventHandler(this.BtnPrevious_Click);
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnFirst
             // 
@@ -173,7 +178,7 @@
             this.btnFirst.TabIndex = 2;
             this.btnFirst.Text = "First";
             this.btnFirst.UseVisualStyleBackColor = true;
-            this.btnFirst.Click += new System.EventHandler(this.BtnFirst_Click);
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // txtRecord
             // 
@@ -182,6 +187,7 @@
             this.txtRecord.Name = "txtRecord";
             this.txtRecord.Size = new System.Drawing.Size(175, 22);
             this.txtRecord.TabIndex = 3;
+            this.txtRecord.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtMake
             // 
@@ -189,7 +195,8 @@
             this.txtMake.Margin = new System.Windows.Forms.Padding(4);
             this.txtMake.Name = "txtMake";
             this.txtMake.Size = new System.Drawing.Size(171, 22);
-            this.txtMake.TabIndex = 4;
+            this.txtMake.TabIndex = 1;
+            this.toolTip3.SetToolTip(this.txtMake, "Enter make of the car");
             // 
             // label2
             // 
@@ -207,7 +214,7 @@
             this.txtVRegNumb.Margin = new System.Windows.Forms.Padding(4);
             this.txtVRegNumb.Name = "txtVRegNumb";
             this.txtVRegNumb.Size = new System.Drawing.Size(171, 22);
-            this.txtVRegNumb.TabIndex = 4;
+            this.txtVRegNumb.TabIndex = 0;
             // 
             // label3
             // 
@@ -216,7 +223,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(190, 17);
-            this.label3.TabIndex = 5;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Vehicle Registration number:";
             // 
             // txtRentPerDay
@@ -226,6 +233,7 @@
             this.txtRentPerDay.Name = "txtRentPerDay";
             this.txtRentPerDay.Size = new System.Drawing.Size(171, 22);
             this.txtRentPerDay.TabIndex = 4;
+            this.txtRentPerDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtEngineSize
             // 
@@ -233,7 +241,8 @@
             this.txtEngineSize.Margin = new System.Windows.Forms.Padding(4);
             this.txtEngineSize.Name = "txtEngineSize";
             this.txtEngineSize.Size = new System.Drawing.Size(171, 22);
-            this.txtEngineSize.TabIndex = 4;
+            this.txtEngineSize.TabIndex = 2;
+            this.toolTip2.SetToolTip(this.txtEngineSize, "Enter engine size");
             // 
             // label4
             // 
@@ -272,13 +281,13 @@
             this.cbxAvailable.Margin = new System.Windows.Forms.Padding(4);
             this.cbxAvailable.Name = "cbxAvailable";
             this.cbxAvailable.Size = new System.Drawing.Size(18, 17);
-            this.cbxAvailable.TabIndex = 6;
+            this.cbxAvailable.TabIndex = 5;
             this.cbxAvailable.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(25, 245);
+            this.label7.Location = new System.Drawing.Point(29, 250);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(110, 17);
@@ -291,13 +300,14 @@
             this.txtDateReg.Margin = new System.Windows.Forms.Padding(4);
             this.txtDateReg.Name = "txtDateReg";
             this.txtDateReg.Size = new System.Drawing.Size(171, 22);
-            this.txtDateReg.TabIndex = 8;
+            this.txtDateReg.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.txtDateReg, "yyyy/mm/dd");
             // 
             // frmCars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(865, 508);
             this.Controls.Add(this.txtDateReg);
             this.Controls.Add(this.label7);
@@ -317,15 +327,15 @@
             this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.btnLast);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtExit);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.txtadd);
-            this.Controls.Add(this.txtCancel);
-            this.Controls.Add(this.txtDelete);
-            this.Controls.Add(this.txtUpdate);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtAdd);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCars";
-            this.Text = "Task A Myolisi Maxam SubDate";
+            this.Text = "Task A Myolisi Maxam 21/10/2019";
             this.Load += new System.EventHandler(this.frmCars_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -334,12 +344,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button txtUpdate;
-        private System.Windows.Forms.Button txtadd;
-        private System.Windows.Forms.Button txtDelete;
-        private System.Windows.Forms.Button txtSearch;
-        private System.Windows.Forms.Button txtCancel;
-        private System.Windows.Forms.Button txtExit;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button txtAdd;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.Button btnNext;
@@ -358,6 +368,9 @@
         private System.Windows.Forms.CheckBox cbxAvailable;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDateReg;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.ToolTip toolTip3;
     }
 }
 

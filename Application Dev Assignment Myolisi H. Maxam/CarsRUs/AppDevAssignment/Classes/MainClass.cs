@@ -16,30 +16,29 @@ namespace AppDevAssignment.Classes
         public string VehicleRegNo { get; set; }
         public string Make { get; set; }
         public string EngineSize { get; set; }
-        public string DateRigistered { get; set; }
-        public string RentalPerDay { get; set; }
-        public int Available { get; set; }
-
-        public string Field { get; set; }
-        public string Operator { get; set; }
-        public string Value { get; set; }
+        public string DateRegistered { get; set; }
+        public double RentalPerDay { get; set; }
+        public bool Available { get; set; }
 
 
         public bool Insert(MainClass mc)
         {
+            //Code to add a record of data in the database
+
+            //setting the default return type and setting its value to false
             bool isSuccess = false;
 
             SqlConnection sqlCon = new SqlConnection(myConString);
             try
             {
-                string sqlQuery = "INSERT INTO Car() VALUE()";
+                string sqlQuery = "INSERT INTO Car(VehicleRegNo, Make, EngineSize, DateRegistered, RentalPerDay, Available) VALUES (@VehicleRegNo, @Make, @EngineSize, @DateRegistered, @RentalPerDay, @Available)";
 
                 SqlCommand cmd = new SqlCommand(sqlQuery, sqlCon);
-
+                //Parameters are created to be added to the data 
                 cmd.Parameters.AddWithValue("@VehicleRegNo", mc.VehicleRegNo);
                 cmd.Parameters.AddWithValue("@Make", mc.Make);
                 cmd.Parameters.AddWithValue("@EngineSize", mc.EngineSize);
-                cmd.Parameters.AddWithValue("@DateRegistered", mc.DateRigistered);
+                cmd.Parameters.AddWithValue("@DateRegistered", mc.DateRegistered);
                 cmd.Parameters.AddWithValue("@RentalPerDay", mc.RentalPerDay);
                 cmd.Parameters.AddWithValue("@Available", mc.Available);
 
@@ -72,20 +71,21 @@ namespace AppDevAssignment.Classes
             //setting the default return type and setting its value to false
             bool isSuccess = false;
 
-            //connect to data
+            //Establishes connection between the database and the application
             SqlConnection sqlCon = new SqlConnection(myConString);
             try
             {
-                //create a sql query to Insert Data
-                string sql = "UPDATE  Car SET Vehicle = @Vehicle, Make = @Make, EngineSize = @EngineSize, DateRigistered = @DateRigistered, RentalPerDay = @RentalPerDay, Available = @Available WHERE Vehicle = @Vehicle";
+                //create a sql query to Update data that already exist
+                string sql = "UPDATE Car SET Make = @Make, EngineSize = @EngineSize, DateRegistered = @DateRegistered, RentalPerDay = @RentalPerDay, Available = @Available WHERE VehicleRegNo = @VehicleRegNo";
 
                 //creatinga sql command using sql and sqlCon
                 SqlCommand cmd = new SqlCommand(sql, sqlCon);
                 //create the Parameters to add data
-                cmd.Parameters.AddWithValue("@Vehicle", mc.VehicleRegNo);
+                cmd.Parameters.AddWithValue("@VehicleRegNo", mc.VehicleRegNo);
                 cmd.Parameters.AddWithValue("@Make", mc.Make);
                 cmd.Parameters.AddWithValue("@EngineSize", mc.EngineSize);
-                cmd.Parameters.AddWithValue("@DateRigistered", mc.DateRigistered);
+
+                cmd.Parameters.AddWithValue("@DateRegistered", mc.DateRegistered);
                 cmd.Parameters.AddWithValue("@RentalPerDay", mc.RentalPerDay);
                 cmd.Parameters.AddWithValue("@Available", mc.Available);
 
@@ -126,8 +126,8 @@ namespace AppDevAssignment.Classes
             SqlConnection sqlCon = new SqlConnection(myConString);
             try
             {
-                //create a sql query to Insert Data
-                string sql = "DELETE Car WHERE VehicleRegNo = @VehicleRegNo";
+                //create a sql query to Delete Data using the Vehilcle Registration as reference
+                string sql = "DELETE FROM Car WHERE VehicleRegNo = @VehicleRegNo";
 
                 //creatinga sql command using sql and sqlCon
                 SqlCommand cmd = new SqlCommand(sql, sqlCon);
@@ -190,38 +190,6 @@ namespace AppDevAssignment.Classes
             }
 
             return dt;
-        }
-
-        public DataTable Run()
-        {
-            SqlConnection connection = new SqlConnection(myConString);
-            DataTable dt = new DataTable();
-
-            try
-            {
-
-                string sql = "SELECT * WHERE @Field @Operator Value";
-                //creating a command using 'sql' and 'sqlCon'
-                SqlCommand cmd = new SqlCommand(sql, connection);
-                //Creating a sql adapter using 'cmd'
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-
-                connection.Open();
-                sda.Fill(dt);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error Loading data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                //disconnecting connection
-                connection.Close();
-            }
-
-            return dt;
-
         }
 
     }

@@ -48,30 +48,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\MainClass.cs" />
-    <Compile Include="DataSet1.Designer.cs">
+    <Compile Include="frmCars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCars.Designer.cs">
+      <DependentUpon>frmCars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearch.Designer.cs">
+      <DependentUpon>frmSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HireDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCars.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCars.Designer.cs">
-      <DependentUpon>FrmCars.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmSearch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSearch.Designer.cs">
-      <DependentUpon>FrmSearch.cs</DependentUpon>
+      <DependentUpon>HireDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmCars.resx">
-      <DependentUpon>FrmCars.cs</DependentUpon>
+    <EmbeddedResource Include="frmCars.resx">
+      <DependentUpon>frmCars.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSearch.resx">
-      <DependentUpon>FrmSearch.cs</DependentUpon>
+    <EmbeddedResource Include="frmSearch.resx">
+      <DependentUpon>frmSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -82,16 +82,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <None Include="HireDataSet.xsc">
+      <DependentUpon>HireDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
+    <None Include="HireDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>HireDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <None Include="HireDataSet.xss">
+      <DependentUpon>HireDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
