@@ -7,4 +7,5 @@ C:\Users\Myolisi Maxam\Documents\School\2nd Year\App Dev\Application Dev Myolisi
 C:\Users\Myolisi Maxam\Documents\School\2nd Year\App Dev\Application Dev Myolisi H. Maxam\Application Dev Assignment Myolisi H. Maxam\CarsRUs\AppDevAssignment\bin\Debug\AppDevAssignment.pdb
 C:\Users\Myolisi Maxam\Documents\School\2nd Year\App Dev\Application Dev Myolisi H. Maxam\Application Dev Assignment Myolisi H. Maxam\CarsRUs\AppDevAssignment\obj\Debug\AppDevAssignment.exe
 C:\Users\Myolisi Maxam\Documents\School\2nd Year\App Dev\Application Dev Myolisi H. Maxam\Application Dev Assignment Myolisi H. Maxam\CarsRUs\AppDevAssignment\obj\Debug\AppDevAssignment.pdb
-C:\Users\Myolisi Maxam\Documents\School\2nd Year\App Dev\Application Dev Myolisi H. Maxam\Application Dev Assignment Myolisi H. Maxam\CarsRUs\AppDevAssignment\obj\Debug\AppDevAssignment.frmSearch.resources
+C:\Users\Myolisi Maxam\Documents\School\2nd Year\App Dev\Application Dev Myolisi H. Maxam\Application Dev Assignment Myolisi H. Maxam\CarsRUs\AppDevAssignment\obj\Debug\CarsDatabase.csproj.CoreCompileInputs.cache
+C:\Users\Myolisi Maxam\Documents\School\2nd Year\App Dev\Application Dev Myolisi H. Maxam\Application Dev Assignment Myolisi H. Maxam\CarsRUs\AppDevAssignment\obj\Debug\AppDevAssignment.frmLogin.resources

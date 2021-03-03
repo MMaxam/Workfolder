@@ -167,6 +167,7 @@ namespace AppDevAssignment.Classes
             //connect to the database
             SqlConnection sqlCon = new SqlConnection(myConString);
             DataTable dt = new DataTable();
+
             try
             {
                 //write the sql query

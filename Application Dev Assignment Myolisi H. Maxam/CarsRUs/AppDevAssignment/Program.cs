@@ -16,7 +16,7 @@ namespace AppDevAssignment
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCars());
+            Application.Run(new frmLogin());
         }
     }
 }

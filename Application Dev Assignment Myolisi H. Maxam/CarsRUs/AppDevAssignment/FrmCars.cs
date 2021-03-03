@@ -9,16 +9,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace AppDevAssignment
 {
     public partial class frmCars : Form
     {
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
+        private static extern IntPtr CreateRoundRectRgn
+        (
+          int nLeftRect,
+          int nTopRect,
+          int nRightRect,
+          int nBottomRect,
+          int nWidthEllipse,
+          int nHeightEllipse
+
+        );
+        static string myConString = ConfigurationManager.ConnectionStrings["Hire"].ConnectionString;
         MainClass mc = new MainClass();
-        
+        DataTable dt = new DataTable();
+        DataSet ds = new DataSet();
         public frmCars()
         {
             InitializeComponent();
+            
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
         }
         int R = 0;
 
@@ -116,10 +136,17 @@ namespace AppDevAssignment
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            //Opens a new windows form called frmSearch
-            frmSearch search = new frmSearch();
-            search.Show(); 
+            pnlIndicator.Height = btnSearch.Height;
+            pnlIndicator.Top = btnSearch.Top;
+            btnSearch.BackColor = Color.FromArgb(46, 51, 73);
+            btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
+            //pnlDashboard.Hide();
+
+            //Panel Search becomes visible
+            pnlSearch.Show();
+
+
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -141,11 +168,19 @@ namespace AppDevAssignment
             if (result == DialogResult.Yes)
             {
                 this.Close();
+                frmLogin login = new frmLogin();
+                login.Show();
+                               
             }
         }
 
         private void frmCars_Load(object sender, EventArgs e)
-        {
+        {            
+
+            pnlSearch.Hide(); //Hides search panel
+
+            // TODO: This line of code loads data from the 'hireDataSet.Car' table into the text fields. You can move, or remove it, as needed.
+            this.carTableAdapter.Fill(this.hireDataSet.Car);
             DataTable dt = mc.Select();
             //When app loads data of the first record in the database is automatically displayed
             txtVRegNumb.Text = dt.Rows[R]["VehicleRegNo"].ToString();
@@ -157,6 +192,26 @@ namespace AppDevAssignment
 
             //Displays what record is being displayed
             txtRecord.Text = (R + 1) + " of " + dt.Rows.Count;
+
+            pnlIndicator.Height = btnDashboard.Height;
+            pnlIndicator.Top = btnDashboard.Top;
+            pnlIndicator.Left = btnDashboard.Left;
+            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+
+            //Code populates all combo boxes with the appropriate combo box items
+
+            cboField.Items.Add("Make");
+            cboField.Items.Add("EngineSize");
+            cboField.Items.Add("RentalPerDay");
+            cboField.Items.Add("Available");
+
+            cboOperator.Items.Add("=");
+            cboOperator.Items.Add("<");
+            cboOperator.Items.Add(">");
+            cboOperator.Items.Add("<=");
+            cboOperator.Items.Add(">=");
+            cboOperator.Items.Add("!=");
+
         }
 
         private void btnFirst_Click(object sender, EventArgs e)
@@ -236,13 +291,104 @@ namespace AppDevAssignment
 
         public string timeRemove()
         {   
-            DataTable dt = mc.Select(); 
+            DataTable dt = mc.Select();
             string date = txtDateReg.Text = dt.Rows[R]["DateRegistered"].ToString();
-            date = date.Substring(0, date.IndexOf(" "));
+            date = date.Substring(0, date.IndexOf(" ",8));
 
             return date;
         }
 
+        private void btnRun_Click(object sender, EventArgs e)
+        {
 
+            //Code uses the options selected in the combo boxes and the text in the text box to filter through the database to display data that the user wants to see
+
+            ds.Reset();
+            if (cboField.Text != "" && cboOperator.Text != "" && txtValue.Text != "")
+            {
+                string Field = cboField.Text.ToString();
+                string Operator = cboOperator.Text.ToString();
+                string Value = txtValue.Text;
+
+                string search = Field + " " + Operator + " '" + Value + "'";
+
+                using (SqlConnection con = new SqlConnection(myConString))
+                {
+                    try
+                    {
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "SELECT * FROM Car WHERE " + @search;
+
+                        SqlDataAdapter sqlData = new SqlDataAdapter(cmd);
+                        sqlData.Fill(ds);
+                        dgvCarList.DataSource = ds.Tables[0];
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Error updating data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
+                }
+
+            }
+
+
+        }
+
+        private void btnCancleSearch_Click(object sender, EventArgs e)
+        {
+            this.carTableAdapter.Fill(this.hireDataSet.Car);
+            DataTable dt = mc.Select();
+            dgvCarList.DataSource = dt;
+
+            txtValue.Text = "";
+            cboField.Text = "";
+            cboOperator.Text = "";
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            pnlIndicator.Height = btnDashboard.Height;
+            pnlIndicator.Top = btnDashboard.Top;
+            pnlIndicator.Left = btnDashboard.Left;
+            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+
+            pnlSearch.Hide();
+            pnlDashboard.Show();
+        
+        }
+
+        private void btnDashboard_Leave(object sender, EventArgs e)
+        {
+            btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnSearch_Leave(object sender, EventArgs e)
+        {
+            btnSearch.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void pnlSearch_Paint(object sender, PaintEventArgs e)
+        {
+            //Code populates datagrid table with the Hire database 
+            this.carTableAdapter.Fill(this.hireDataSet.Car);
+            DataTable dt = mc.Select();
+            dgvCarList.DataSource = dt;
+
+            
+            
+        }
     }
+
+
+
 }
